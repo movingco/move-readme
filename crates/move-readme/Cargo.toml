@@ -1,6 +1,6 @@
 [package]
 name = "move-readme"
-version = "0.1.4"
+version = "0.1.0"
 description = "Generates a readme from a Move package."
 homepage = "https://moving.wtf"
 repository = "https://github.com/movingco/move-readme"
