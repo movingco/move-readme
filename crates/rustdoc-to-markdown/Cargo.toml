@@ -1,0 +1,14 @@
+[package]
+name = "rustdoc-to-markdown"
+version = "0.1.0"
+description = "Transform code blocks from rustdoc into markdown"
+homepage = "https://moving.wtf"
+repository = "https://github.com/movingco/move-readme"
+authors = ["Ian Macalinao <ian@moving.wtf>"]
+license = "Apache-2.0"
+edition = "2021"
+keywords = ["readme", "rustdoc", "markdown"]
+
+[dependencies]
+lazy_static = "1.1"
+regex = "1.0"

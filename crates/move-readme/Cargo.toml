@@ -1,0 +1,27 @@
+[package]
+name = "move-readme"
+version = "0.1.4"
+description = "Generates a readme from a Move package."
+homepage = "https://moving.wtf"
+repository = "https://github.com/movingco/move-readme"
+authors = ["Ian Macalinao <ian@moving.wtf>"]
+license = "Apache-2.0"
+edition = "2021"
+keywords = ["move", "diem", "readme"]
+
+[features]
+default = []
+address20 = ["move-readme-generator/address20"]
+address32 = ["move-readme-generator/address32"]
+
+[dependencies]
+anyhow = "1.0.42"
+async-trait = "0.1.56"
+clap = { version = "3.2", features = ["derive"] }
+clitool = "0.2.0"
+tokio = { version = "1.18.2", features = ["full"] }
+move-readme-generator = { version = "0.1.0", path = "../move-readme-generator" }
+
+[[bin]]
+name = "move-readme"
+path = "./src/bin/move-readme.rs"
