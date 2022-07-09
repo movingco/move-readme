@@ -7,6 +7,16 @@ use move_core_types::{identifier::Identifier, language_storage::ModuleId};
 use move_idl::{IDLBuilder, IDLPackage};
 use rustdoc_to_markdown::process_docs;
 use serde::{Deserialize, Serialize};
+use tera::Tera;
+
+#[derive(Serialize)]
+pub struct ReadmeContext {
+    pub title: String,
+    pub body: String,
+    pub address: String,
+    pub idl: IDLPackage,
+    pub license: Option<String>,
+}
 
 #[derive(Default, Serialize, Deserialize)]
 pub struct ReadmeConfig {
@@ -69,10 +79,6 @@ pub fn generate_readme(root_path: &Path) -> Result<String> {
         module_id,
     } = load_from_manifest_path(&idl, &root_path.join("Move.toml"))?;
 
-    let license_txt = license
-        .map(|license| format!("## License\n\n{}", license))
-        .unwrap_or_default();
-
     let module = idl
         .modules
         .get(&module_id)
@@ -89,11 +95,17 @@ pub fn generate_readme(root_path: &Path) -> Result<String> {
     )
     .join("\n");
 
-    let content = vec![format!("# {}", title), markdown_preamble, license_txt]
-        .into_iter()
-        .map(|el| el.trim_end().to_string())
-        .filter(|s| !s.is_empty())
-        .collect::<Vec<_>>()
-        .join("\n\n");
-    Ok(format!("{}\n", content))
+    let mut tera = Tera::default();
+    tera.add_raw_template("default", include_str!("templates/default.tpl.md"))?;
+
+    let context = ReadmeContext {
+        title,
+        body: markdown_preamble,
+        address: module_id.address().to_hex_literal(),
+        idl,
+        license,
+    };
+    let result = tera.render("default", &tera::Context::from_serialize(context)?)?;
+
+    Ok(result)
 }
