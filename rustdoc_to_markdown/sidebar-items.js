@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["process_docs","Process and concatenate the doc lines into a single String"]],"struct":[["Processor",""]],"trait":[["DocProcess",""]]});
