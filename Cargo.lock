@@ -210,9 +210,9 @@ dependencies = [
 
 [[package]]
 name = "clitool"
-version = "0.2.0"
+version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "63e778f1365332fc3bd84c7379eaea9806510b9a6521acaa971135b784db3f29"
+checksum = "06fb3378c537f6ea0e956844d7c94bad9c30ebba2a48e34843fa73b9de79aacd"
 dependencies = [
  "anyhow",
  "async-trait",
