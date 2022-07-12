@@ -16,7 +16,7 @@ address32 = ["move-idl/address32", "move-core-types/address32"]
 
 [dependencies]
 anyhow = "1"
-move-idl = "0.2.0"
+move-idl = "0.2.3"
 module-id = "0.1.0"
 move-core-types = { version = "0.1.0", package = "mv-core-types" }
 serde = { version = "1.0", features = ["derive"] }

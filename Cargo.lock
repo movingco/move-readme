@@ -375,6 +375,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "docstring"
+version = "0.2.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4615dd7b5c2468d6c89432ebe22583879c0ee11bdd929c5ddc5b0d6113b6210d"
+
+[[package]]
 name = "either"
 version = "1.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -767,11 +773,12 @@ dependencies = [
 
 [[package]]
 name = "move-idl"
-version = "0.2.0"
+version = "0.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b59d734ec8e6f8cd26c9f45acbaef8030964d20b10bfc031da7445e539fd46b9"
+checksum = "961a945ab259f28620545764bc55d20e4c750725139811fe557503b0edb8f5af"
 dependencies = [
  "anyhow",
+ "docstring",
  "errmapgen",
  "module-id",
  "move-bytecode-verifier",
