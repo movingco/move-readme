@@ -19,7 +19,7 @@ anyhow = "1.0.42"
 async-trait = "0.1.56"
 clap = { version = "3.2", features = ["derive"] }
 clitool = "0.2.0"
-tokio = { version = "1.18.2", features = ["full"] }
+tokio = { version = "1.20.1", features = ["full"] }
 move-readme-generator = { version = "0.1.0", path = "../move-readme-generator" }
 
 [[bin]]
