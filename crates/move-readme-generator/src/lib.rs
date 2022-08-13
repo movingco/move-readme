@@ -9,6 +9,12 @@ use rustdoc_to_markdown::process_docs;
 use serde::{Deserialize, Serialize};
 use tera::Tera;
 
+/// File containing the information about the package.
+const MOVE_MANIFEST_FILE: &str = "Move.toml";
+
+/// File containing the information about the package.
+const MOPAC_MANIFEST_FILE: &str = "Mopac.toml";
+
 #[derive(Serialize)]
 pub struct ReadmeContext {
     pub title: String,
@@ -73,11 +79,19 @@ fn load_from_manifest_path(idl: &IDLPackage, manifest_path: &Path) -> Result<Rea
 /// Generate the readme.
 pub fn generate_readme(root_path: &Path) -> Result<String> {
     let idl = IDLBuilder::load(root_path)?.gen()?;
+    let mopac_file = root_path.join(MOPAC_MANIFEST_FILE);
     let ReadmeOptions {
         title,
         license,
         module_id,
-    } = load_from_manifest_path(&idl, &root_path.join("Move.toml"))?;
+    } = load_from_manifest_path(
+        &idl,
+        &if mopac_file.exists() {
+            mopac_file
+        } else {
+            root_path.join(MOVE_MANIFEST_FILE)
+        },
+    )?;
 
     let module = idl
         .modules
