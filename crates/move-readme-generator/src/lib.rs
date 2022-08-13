@@ -42,7 +42,7 @@ struct PackageMeta {
 
 #[derive(Serialize, Deserialize)]
 struct ManifestWithReadme {
-    package: PackageMeta,
+    package: Option<PackageMeta>,
     /// Readme configuration.
     readme: Option<ReadmeConfig>,
 }
@@ -71,7 +71,7 @@ fn load_from_manifest_path(idl: &IDLPackage, manifest_path: &Path) -> Result<Rea
 
     Ok(ReadmeOptions {
         title,
-        license: manifest_with_readme.package.license,
+        license: manifest_with_readme.package.and_then(|o| o.license),
         module_id: ModuleId::new(*address, Identifier::new(module_name)?).into(),
     })
 }
