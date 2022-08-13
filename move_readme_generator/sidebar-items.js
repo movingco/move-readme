@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["generate_readme","Generate the readme."]],"struct":[["ReadmeConfig",""]]});
+initSidebarItems({"fn":[["generate_readme","Generate the readme."]],"struct":[["ReadmeConfig",""],["ReadmeContext",""]]});
