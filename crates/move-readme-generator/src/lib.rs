@@ -66,7 +66,7 @@ fn load_from_manifest_path(idl: &IDLPackage, manifest_path: &Path) -> Result<Rea
     Ok(ReadmeOptions {
         title,
         license: manifest_with_readme.package.license,
-        module_id: ModuleId::new(address, Identifier::new(module_name)?).into(),
+        module_id: ModuleId::new(*address, Identifier::new(module_name)?).into(),
     })
 }
 

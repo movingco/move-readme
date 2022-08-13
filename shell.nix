@@ -4,6 +4,7 @@ stdenv.mkDerivation {
   name = "devshell";
   buildInputs = [
     cargo-readme
+    cargo-outdated
     # Build tools
     rustup
 
