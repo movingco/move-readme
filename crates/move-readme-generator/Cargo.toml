@@ -1,6 +1,6 @@
 [package]
 name = "move-readme-generator"
-version = "0.1.0"
+version = "0.1.1"
 description = "Library for generating a readme from a Move package."
 homepage = "https://moving.wtf"
 repository = "https://github.com/movingco/move-readme"
