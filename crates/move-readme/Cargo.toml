@@ -15,7 +15,7 @@ address20 = ["move-readme-generator/address20"]
 address32 = ["move-readme-generator/address32"]
 
 [dependencies]
-anyhow = "1.0.42"
+anyhow = "1.0.63"
 async-trait = "0.1.56"
 clap = { version = "3.2", features = ["derive"] }
 clitool = "0.2.0"
