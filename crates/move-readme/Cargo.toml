@@ -17,7 +17,7 @@ address32 = ["move-readme-generator/address32"]
 [dependencies]
 anyhow = "1.0.42"
 async-trait = "0.1.56"
-clap = { version = "3.2", features = ["derive"] }
+clap = { version = "4.0", features = ["derive"] }
 clitool = "0.2.0"
 tokio = { version = "1.18.2", features = ["full"] }
 move-readme-generator = { version = "0.1.0", path = "../move-readme-generator" }
